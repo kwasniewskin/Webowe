@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="align-center">
+        <h1>Biuro podróży</h1> <br>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text">Wybierz środek transportu</label>
+          </div>
+          <select class="custom-select" #selectTransport
+          (change)="onSelectedTransport(selectTransport.value)">
+            <option value="samolot">Samolot</option>
+            <option value="pociag">Pociąg</option>
+            <option value="autokar">Autokar</option>
+            <option value="wlasnyTransport">Własny transport</option>
+          </select>
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text">Wybierz miejsce:</label>
+          </div>
+          <select class="custom-select" #selectMiejsce 
+          (change)="onSelectedMiejsce(selectMiejsce.value)">
+            <option value="mazury">Mazury</option>
+            <option value="bieszczady">Bieszczady</option>
+            <option value="kielce">Kielce</option>
+            <option value="warszawa">Warszawa</option>
+            <option value="jaworznia">Jaworznia</option>
+          </select>
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-pretend">
+            <label class="input-group-text">Ilość dni:</label>
+          </div>
+          <input type="number" #inputIloscDni
+          (change)="onChangeIloscDni(inputIloscDni.value)">
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-pretend">
+            <label class="input-group-text">Liczba osób:</label>
+          </div>
+          <input type="number" #inputIloscOsob
+          (change)="onChangeIloscOsob(inputIloscOsob.value)">
+        </div>
+        <button type="button" (click)="oblicz()" class="btn btn-primary">PODLICZ KOSZTY</button>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="p-3 align-center" #display id="display">
+        <h2>Środek transportu: {{wybranySrodekTransportu}}</h2>
+        <h2>Miejsce: {{wybraneMiejsce}}</h2>
+        <h2>Ilosc dni: {{iloscDni}}</h2>
+        <h2>Ilosc osób: {{iloscOsob}}</h2>
+        <h2>Koszt wycieczki: {{kosztWycieczki}} zł</h2>
+      </div>
+    </div>
+  </div>
+</div>
